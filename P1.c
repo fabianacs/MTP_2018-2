@@ -1,4 +1,4 @@
-/* P0.c */
+/* P1.c */
 /* Fabiana Costa e Silva */
 /* 11811EBI019 */
 
@@ -9,7 +9,7 @@ int main()
 	int estado = 0, i = 0;
 	char bits[256];
 	printf ("Digite a sequencia: ");
-	scanf ("%s", &bits);
+	scanf ("%s", bits);
 	while (bits[i] != '\0')
 	{
 		if (estado == 0 && bits[i] == '1')
