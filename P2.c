@@ -15,18 +15,18 @@ int pot (int n1, int n2)
 void inverter (char vet[])
 {
 	int aux = 0, i, cont = 0, conttotal = 0;
-	for (i=0; vet[i] != '\0'; i++) //Faz a contagem  
+	for (i=0; vet[i] != '\0'; i++)
 		cont++;
 	conttotal = cont;
 	cont--;
-	for (i=0; i<cont; i++) //Inverte a string
+	for (i=0; i<cont; i++)
 	{
 		aux = vet[i];
 		vet[i] = vet[cont];
 		vet[cont] = aux;
 		cont--;
 	}
-	vet[conttotal] = '\0'; //Preenche a ultima posiçao com \0
+	vet[conttotal] = '\0';
 }
 
 int bpd (char num[])
@@ -34,7 +34,7 @@ int bpd (char num[])
 	inverter(num);
 	int i, soma = 0;
 	for (i = 0; num[i] != '\0'; i++)
-		if (num[i] == '1') //Código está entendendo o 1 como 49, e 0 como 48
+		if (num[i] == '1')
 			soma = soma + num[i] * pot(2, i);
 	return soma/49;
 }
