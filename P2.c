@@ -26,7 +26,7 @@ void inverter (char vet[])
 		vet[cont] = aux;
 		cont--;
 	}
-	vet[conttotal] = '\0'; //Preenche a ultima posiÁao com \0
+	vet[conttotal] = '\0'; //Preenche a ultima posi√ßao com \0
 }
 
 int bpd (char num[])
@@ -34,7 +34,7 @@ int bpd (char num[])
 	inverter(num);
 	int i, soma = 0;
 	for (i = 0; num[i] != '\0'; i++)
-		if (num[i] == '1') //CÛdigo est· entendendo o 1 como 49, e 0 como 48
+		if (num[i] == '1') //C√≥digo est√° entendendo o 1 como 49, e 0 como 48
 			soma = soma + num[i] * pot(2, i);
 	return soma/49;
 }
