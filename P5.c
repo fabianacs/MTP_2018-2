@@ -39,19 +39,17 @@ void gera_numeros(float * vetor, int tam, float min, float max, LCG * r)
 		vetor[i] = (max-min)*lcg_rand_01(r) + min;
 }
 
-float soma(float *inicio_vetor, float *fim_vetor) //Endereço do vetor
+float soma(float *inicio_vetor, float *fim_vetor)
 {
-	while (inicio_vetor != fim_vetor + 1) //Endereço inicial diferente do último (depois do número que está no endereço de fim_vetor, pois esse deve ser somado também
-		return (*inicio_vetor + soma(inicio_vetor + 1, fim_vetor)); //Manda o valor mais a soma dos proximos valores
-		//inicio_vetor + 1 significa que está mandando o endereço do prox valor
-	return 0; //Parada
+	while (inicio_vetor != fim_vetor + 1) 
+		return (*inicio_vetor + soma(inicio_vetor + 1, fim_vetor));
+	return 0;
 }
 
 float produto(float *inicio_vetor, float *fim_vetor)
 {
-	while (inicio_vetor != fim_vetor + 1) //Endereço inicial diferente do último (depois do número que está no endereço de fim_vetor, pois esse deve ser somado também
-		return (*inicio_vetor * produto(inicio_vetor + 1, fim_vetor)); //Manda o valor mais p produto dos proximos valores
-		//inicio_vetor + 1 significa que está mandando o endereço do prox valor
+	while (inicio_vetor != fim_vetor + 1) 
+		return (*inicio_vetor * produto(inicio_vetor + 1, fim_vetor));
 	return 1;	
 }
 
@@ -73,7 +71,7 @@ int main()
 		switch (op)
 		{
 			case 1:
-				printf ("\nA soma eh %.6f \n\n", soma (&numeros[0], &numeros[49])); //Passando endereço do primeiro e ultimo termo 
+				printf ("\nA soma eh %.6f \n\n", soma (&numeros[0], &numeros[49]));
 				break;
 			case 2:
 				printf ("\nO produto eh %g \n\n", produto (&numeros[0], &numeros[49]));
