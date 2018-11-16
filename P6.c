@@ -12,10 +12,9 @@ struct ponto
 	double y;
 };
 
-//POR QUE TEM Q COLOCAR STRUCT EM TUDO???
-struct ponto *gerar (int n) //Pq o nome tem *?
+struct ponto *gerar (int n)
 {
-	struct ponto *p = (struct ponto*) malloc(n*sizeof(struct ponto)); //Alocação dinâmica da memória
+	struct ponto *p = (struct ponto*) malloc(n*sizeof(struct ponto));
 	int i;
 	printf ("\n\nOs pontos gerados sao: \n");
 	for (i=0; i<n; i++)
@@ -29,12 +28,12 @@ struct ponto *gerar (int n) //Pq o nome tem *?
 
 int main ()
 {
-	struct ponto *p; //Declaração da struct como ponteiro, para usar alocação dinâmica
+	struct ponto *p;
 	int n;
 	printf ("Digite o numero de pontos que deseja encontrar: ");
 	scanf ("%d", &n);
 	getchar();
-	p = gerar(n); // ???
-	free(p); //Libera a memória
+	p = gerar(n);
+	free(p);
 	return 0;
 }
