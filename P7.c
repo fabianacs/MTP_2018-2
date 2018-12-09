@@ -12,17 +12,16 @@ struct ponto
 	double y;
 };
 
-struct ponto *gerar (int n) //O nome tem asterisco porque a função retorna um ponteiro
+struct ponto *gerar (int n) 
 {
 
-	struct ponto *p = (struct ponto*) malloc(n*sizeof(struct ponto)); //Alocação dinâmica da memória
+	struct ponto *p = (struct ponto*) malloc(n*sizeof(struct ponto));
 	int i;
 
 	for (i=0; i<n; i++)
 	{
 		p[i].x = cos(i*2.0*M_PI/(n-1));
 		p[i].y = sin(i*2.0*M_PI/(n-1));
-		//fwrite(p, n, sizeof(p), arq);
 	}
 
 	return p;
@@ -45,18 +44,12 @@ void salvar (struct ponto *p, int n)
     }
     
     fclose(arq);
-    
-    /*
-    arq = fopen("pontos.dat", "wb");
-    fwrite (p, n, sizeof(ponto), arq);
-    fclose (arq);
-	*/
 }
 
 
 void arqembin (struct ponto *p, int n)
 {
-	FILE * arq;
+    FILE * arq;
     arq = fopen("pontos.dat", "wb");
     fwrite (p, n, sizeof(struct ponto), arq);
     fclose (arq);
@@ -79,7 +72,7 @@ struct ponto *read (unsigned int *pn)
         n++;
     }
     
-    rewind(arq); //??
+    rewind(arq);
     
     p = (struct ponto *) realloc(p, n*sizeof(struct ponto));
     fread(p, n, sizeof(struct ponto), arq);
@@ -102,45 +95,44 @@ void show (struct ponto *p, struct ponto *pf)
 
 int main ()
 {
-	struct ponto *p; //Declaração da struct como ponteiro, para usar alocação dinâmica
+	struct ponto *p;
 	int n, op;
-	//char vetor[] = "pontos.dat";
 
 	do
-    {
-    	system ("cls");
-        printf("            MENU \n\n1) Gerar arquivo com pontos. \n2) Recuperar pontos de arquivo. \
-		\n3) Sair do programa.\n\n");
-        scanf("%d", &op);
-        switch (op)
-        {
-            case 1:
-                printf ("\nDigite o numero de pontos que deseja encontrar: ");
-                scanf ("%d", &n);
-                getchar();
-                p = gerar(n);
-                
-				salvar (p, n);
-                arqembin(p, n);
-                
-                printf ("\nArquivo gravado!");
-                getch();
-                break;
-            case 2:
-				p = read(&n);
-				show(p, p+n);
-				getch ();
-                break;
-            default:
-                if (op != 3)
-                    printf("Opcao invalida!");
-                getch();
-                break;
-        }
-    } while(op != 3);
+	    {
+		system ("cls");
+		printf("            MENU \n\n1) Gerar arquivo com pontos. \n2) Recuperar pontos de arquivo. \
+			\n3) Sair do programa.\n\n");
+		scanf("%d", &op);
+		switch (op)
+		{
+		    case 1:
+			printf ("\nDigite o numero de pontos que deseja encontrar: ");
+			scanf ("%d", &n);
+			getchar();
+			p = gerar(n);
+
+			salvar (p, n);
+			arqembin(p, n);
+
+			printf ("\nArquivo gravado!");
+			getch();
+			break;
+		    case 2:
+			p = read(&n);
+			show(p, p+n);
+			getch ();
+			break;
+		    default:
+			if (op != 3)
+			    printf("Opcao invalida!");
+			getch();
+			break;
+		}
+	    } while(op != 3);
 
 	printf ("Bye bye!");
-	free(p); //Libera a memória
+	free(p);
 	return 0;
 }
 
