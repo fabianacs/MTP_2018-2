@@ -17,7 +17,7 @@ double funcao(float m, float n)
 int main ()
 {
 	float m, n;
-	scanf ("%f + %f", &m, &n);
+	scanf ("%f %f", &m, &n);
 	printf("%g + %g = %g", m, n, funcao(m,n));
 	return 0;
 }
