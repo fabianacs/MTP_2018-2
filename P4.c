@@ -1,10 +1,8 @@
 /* P4.c */
 /* Fabiana Costa e Silva */
 /* 11811EBI019 */
-
-#include <stdio.h>
-
-double funcao(float m, float n)
+ #include <stdio.h>
+ double funcao(float m, float n)
 {
 	if(m==0) 
 		return n+1;
@@ -13,8 +11,7 @@ double funcao(float m, float n)
 	else if(m>0 && n>0) 
 		funcao(m-1, funcao(m, n-1));
 }
-
-int main ()
+ int main ()
 {
 	float m, n;
 	scanf ("%f %f", &m, &n);
