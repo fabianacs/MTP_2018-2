@@ -1,7 +1,9 @@
 /* P4.c */
 /* Fabiana Costa e Silva */
 /* 11811EBI019 */
+
  #include <stdio.h>
+
  double funcao(float m, float n)
 {
 	if(m==0) 
