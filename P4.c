@@ -6,12 +6,12 @@
 
  double funcao(float m, float n)
 {
-	if(m==0) 
+	if(m==0)
 		return n+1;
-	else if(m>0 && n==0) 
-		funcao(m-1,1);
-	else if(m>0 && n>0) 
-		funcao(m-1, funcao(m, n-1));
+	else if(m>0 && n==0)
+		return funcao(m-1,1);
+	else if(m>0 && n>0)
+		return funcao(m-1, funcao(m, n-1));
 }
  int main ()
 {
